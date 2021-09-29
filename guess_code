@@ -1,0 +1,39 @@
+"""
+File: guess.py
+Guessing a random number between the range of 1-100.
+After each incorrect guess, ask user if they want a hint, if so..show hint.
+"""
+import random
+
+# Generate random number.
+x = random.randint(1, 100)
+# Initial number of guesses.
+count = 0
+# List of accepted hint requests.
+hand = ['h', 'H']
+
+print("\nYou've only 5 chances to guess the number!\n")
+
+while count != 5:
+    count += 1
+    # Taking user input
+    guess = int(input("Guess a number between 1 and 100: "))
+    # Condition testing
+    if x == guess:
+        print("Congratulations you did it in", count, "goes")
+        # Once guessed, loop will break
+        break
+    elif x != guess:
+        hint = str(input('Incorrect, press H for a hint: '))
+        # Check list against user input
+        for i in hand:
+            if i in hint:
+                if x > guess:
+                    print("You guessed too low!")
+                elif x < guess:
+                    print("You Guessed too high!")
+
+# If Guessing is more than required guesses,shows this output.
+if count >= 5:
+    print("\nThe number is", x)
+    print("\tBetter Luck Next time!")
