@@ -1,0 +1,2 @@
+LG- 29/09/21 Logic on count tracker needs polishing as its currently >= 5 meaning even if they guess correctly on the 5th go it still displays the
+             losing message.
