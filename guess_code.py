@@ -5,9 +5,13 @@ After each incorrect guess, ask user if they want a hint, if so..show hint.
 
 MB -
 Changed logic order so if 5th guess is correct it shows correctly
+    did this by keeping the while count less than or equal to max guesses
+    Then moving the if count to after the check for correct and making it greater than or equal
+    to max guesses.
 Added entry validation so won't error if a non number entered as a guess.
 Also added remaining guesses after incorrect guess
 
+This is the original code and left for reference
 """
 
 import random
@@ -28,7 +32,7 @@ count = 0
 print("\nYou've only " + str(max_guesses) + " chances to guess the number!\n")
 
 # use less than so last guess counts
-while count < max_guesses:
+while count <= max_guesses:
 
     # Taking user input
     guess_in = input("Guess a number between " + str(min_random) + " and " + str(max_random) + ": ")
