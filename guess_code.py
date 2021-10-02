@@ -11,6 +11,7 @@ Changed logic order so if 5th guess is correct it shows correctly
 Added entry validation so won't error if a non number entered as a guess.
 Also added remaining guesses after incorrect guess
 
+This is the original code and left for reference
 """
 
 import random

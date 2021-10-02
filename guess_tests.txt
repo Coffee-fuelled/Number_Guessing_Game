@@ -1,5 +1,6 @@
 Guessing Game Testing
 
+Manual Tests
 What needs to be tested:
 1. Handles non number input for guess.
 2. Ends on 5 guesses but last valid guess works correcty.
@@ -8,7 +9,7 @@ What needs to be tested:
 5. Hint works correctly.
 
 How to test:  - some tests can be carried out concurrently!
-1. Try non number input - should warn user and stsrt turn again.
+1. Try non number input - should warn user and start turn again.
 
 2. Change number to be guessed to fixed number. 
 	Try 4 incorrect guesses then the 5th guess correct, the game should handle this as correct answer.
@@ -23,4 +24,12 @@ How to test:  - some tests can be carried out concurrently!
 	Can be done with test 4 - 
 	select the h or H and see if the result is correct. Change the guess higher or lower than the fixed number.
 	Try both h and H.
-	
+--- Note ----
+*** Don't forget to change back from fixed number****
+
+Unit Tests:
+1. guess class test - test correct input - manually test reactions to incorrect inputs
+2. game class test - correct number first try
+3. game class test - incorrect number with count set to 4
+4. game class test - correct number with count at 4
+
