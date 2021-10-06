@@ -10,6 +10,7 @@ import string
 import csv
 import random
 from hint import Hint
+from guess import Guess
 
 
 class GuessingGame(EasyFrame):
@@ -23,9 +24,10 @@ class GuessingGame(EasyFrame):
         self.max_range = max_random
         self.x = random.randint(self.min_range, self.max_range)
         self.max_guesses = max_guess_count
-        self.guess = 0
+        self.guess_in = 0
         self.message = ""
         self.the_letters = ""
+        self.guess = Guess(self.min_range, self.max_range)
 
         super().__init__(title="Guessing Game", width=500, height=350)
 
@@ -59,10 +61,11 @@ class GuessingGame(EasyFrame):
         self.hint = Hint(self.MessageLabel)
 
         # command handling methods after this
-    def check_guess(self):
-        """
 
-        """
+    def check_guess(self):
+        self.guess_in = self.guess.check_guess(self.x, self.max_guesses, self.NumberGuessed, self.MessageLabel, self.HintButton,
+                                               self.GuessButton, self. ReplayButton, self.GuessCount)
+    """
         try:
             self.guess = self.NumberGuessed.getNumber()
             if self.guess < self.min_range or self.guess > self.max_range:
@@ -92,12 +95,11 @@ class GuessingGame(EasyFrame):
 
         finally:
             self.GuessCount["text"] = str(self.count + 1)+" Guesses"
+        # end of check guess*******
+    """
 
     def check_hint(self):
-        """
-
-        """
-        self.hint.get_hint(self.guess, self.x)
+        self.hint.get_hint(self.guess_in, self.x)
 
     def play_again(self):
         self.count = 0
@@ -106,6 +108,7 @@ class GuessingGame(EasyFrame):
         self.NumberGuessed.setNumber(0)
         changeTextColour(self.MessageLabel, "Take a Guess...", "black", "white")
         self.GuessButton["state"] = "normal"
+        self.guess = Guess(self.min_range, self.max_range)
 
     def handle_hint_button(self):
         self.HintButton["state"] = "disabled"
