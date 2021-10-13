@@ -77,8 +77,9 @@ class Guess(object):
 
         finally:
             att_guess_count["text"] = str(self.count + 1)+" Guesses"
-        # end of check guess*******
+
         return self.guess
+        # end of check guess*******
 
 
 def changeTextColour(att, message, fore, back):
