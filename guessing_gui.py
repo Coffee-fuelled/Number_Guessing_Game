@@ -10,6 +10,7 @@ import random
 from hint import Hint
 
 
+
 class GuessingGame(EasyFrame):
 
     """Guessing Game Class"""
@@ -58,6 +59,7 @@ class GuessingGame(EasyFrame):
 
         # command handling methods after this
     def check_guess(self):
+
         """
         """
         try:

@@ -17,6 +17,7 @@ class Guess(object):
         self.nan_string = "Enter a valid number! - Please try again: "
 
         self.run = True
+
     def guess(self):
         """
         Asks the player for a guess
@@ -35,4 +36,6 @@ class Guess(object):
                     break  # entry is an int within range so break the while loop
             except ValueError:  # if a value error then incorrect format
                 print(self.nan_string)
+
         return move
+
