@@ -42,6 +42,7 @@ class Guess(object):
                 print(self.nan_string)
         return move
 
+
     def check_guess(self, x, max_guesses,  att_number_guessed, att_message_label, att_hint_button,
                     att_guess_button, att_replay_button, att_guess_count):
         """
@@ -85,3 +86,4 @@ def changeTextColour(att, message, fore, back):
     att["text"] = message
     att["foreground"] = fore
     att["background"] = back
+
