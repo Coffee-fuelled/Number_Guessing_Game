@@ -2,6 +2,8 @@
 File: guess.py
 Guess object - handles guess inputs
 """
+
+
 class Guess(object):
     """
     Handles guess input and validates the guess
