@@ -1,0 +1,5 @@
+/venv/Lib/
+/venv/Scripts/py.test.exe
+/venv/Scripts/pytest.exe
+__pycache__/
+.idea/.name
