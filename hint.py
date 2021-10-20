@@ -1,6 +1,5 @@
 """
 Filename: hint.py
-
 """
 
 
@@ -11,7 +10,6 @@ class Hint(object):
 
     def get_hint(self, guess, number):
         """
-
         """
         if guess < number:
             changeTextColour(self.att, f"Too Low", "white", "red")

@@ -3,8 +3,6 @@ File: guessing_gui.py
 Sets up the Graphical user interface for the guessing game
 """
 from breezypythongui import EasyFrame
-import string
-import csv
 import random
 from hint import Hint
 from guess import Guess
@@ -52,34 +50,6 @@ class GuessingGame(EasyFrame):
     def check_guess(self):
         self.guess_in = self.guess.check_guess(self.x, self.max_guesses, self.NumberGuessed, self.MessageLabel, self.HintButton,
                                                self.GuessButton, self. ReplayButton, self.GuessCount)
-    """
-        try:
-            self.guess = self.NumberGuessed.getNumber()
-            if self.guess < self.min_range or self.guess > self.max_range:
-
-                self.HintButton["state"] = "normal"
-                self.count += 1
-                if self.guess == self.x:
-                    changeTextColour(self.MessageLabel, f"You got it in {self.count} guesses!", "white", "green")
-                    self.GuessButton["state"] = "disabled"
-                    self.HintButton["state"] = "disabled"
-                    self.ReplayButton["state"] = "normal"
-                else:
-                    if self.count >= self.max_guesses:
-                        changeTextColour(self.MessageLabel, f"The number is {self.x},"
-                                                            f" Better Luck Next time!", "white", "orange")
-                        self.GuessButton["state"] = "disabled"
-                        self.HintButton["state"] = "disabled"
-                        self.ReplayButton["state"] = "normal"
-                    else:
-                        changeTextColour(self.MessageLabel,
-                                         f"Not Correct - Click the button for a hint!", "white", "orange")
-        except ValueError:
-            changeTextColour(self.MessageLabel, "You need to enter an integer!",  "red", "white")
-        finally:
-            self.GuessCount["text"] = str(self.count + 1)+" Guesses"
-        # end of check guess*******
-    """
 
     def check_hint(self):
 
@@ -102,11 +72,3 @@ def changeTextColour(att, message, fore, back):
     att["text"] = message
     att["foreground"] = fore
     att["background"] = back
-
-
-def main():
-    GuessingGame(1, 100, 5).mainloop()
-
-
-if __name__ == "__main__":
-    main()

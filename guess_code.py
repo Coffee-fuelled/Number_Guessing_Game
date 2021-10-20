@@ -2,7 +2,6 @@
 File: guess.py
 Guessing a random number between the range of 1-100.
 After each incorrect guess, ask user if they want a hint, if so..show hint.
-
 MB -
 Changed logic order so if 5th guess is correct it shows correctly
     did this by keeping the while count less than or equal to max guesses
@@ -10,7 +9,6 @@ Changed logic order so if 5th guess is correct it shows correctly
     to max guesses.
 Added entry validation so won't error if a non number entered as a guess.
 Also added remaining guesses after incorrect guess
-
 This is the original code and left for reference
 """
 
@@ -69,4 +67,3 @@ while count <= max_guesses:
     # catches error if the guess is not a number
     except ValueError:
         print("Please enter a valid number! - Try again: ")
-
