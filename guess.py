@@ -72,7 +72,7 @@ class Guess(object):
             changeTextColour(att_message_label, "You need to enter an integer!",  "red", "white")
 
         finally:
-            att_guess_count["text"] = str(self.count + 1)+" Guesses"
+            att_guess_count["text"] = str(self.count)+" Guesses used"
         # end of check guess*******
         return self.guess
 

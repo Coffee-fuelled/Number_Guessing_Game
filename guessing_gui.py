@@ -23,15 +23,15 @@ class GuessingGame(EasyFrame):
         self.the_letters = ""
         self.guess = Guess(self.min_range, self.max_range)
 
-        super().__init__(title="Guessing Game", width=500, height=350)
+        super().__init__(title="Guessing Game", width=500, height=350,background="light blue")
 
         self.Title = self.addLabel(text="Guess a number between " + str(self.min_range) +
                                         " and " + str(self.max_range) + ": ",
-                                   row=0, column=0, columnspan=3, sticky="EW", font="Verdana",
+                                   row=0, column=0, columnspan=4, sticky="EW", font="Verdana",
                                    foreground="#ffffff",
-                                   background="#000000")
+                                   background="navy")
         self.GuessLabel = self.addLabel(text="What is Your Guess?",
-                                        row=1, column=0, foreground="#090909")
+                                        row=1, column=0, foreground="#090909", background="light blue")
         self.NumberGuessed = self.addIntegerField(value=0, row=1, column=1)
         self.GuessButton = self.addButton(text="Guess!",
                                           row=2, column=3, columnspan=3, command=self.check_guess)
@@ -41,8 +41,8 @@ class GuessingGame(EasyFrame):
                                            command=self.play_again, state="disabled")
         self.QuitButton = self.addButton(text="Quit", row=4, column=2, command=self.quit)
         self.MessageLabel = self.addLabel(text="Take a Guess...",
-                                          row=2, column=0, columnspan=3, sticky="NSEW")
-        self.GuessCount = self.addLabel(text="1 Guess", row=4, column=0)
+                                          row=2, column=0, columnspan=3, sticky="NSEW", background="light blue")
+        self.GuessCount = self.addLabel(text="0 Guesses used", row=4, column=0)
         self.hint = Hint(self.MessageLabel)
 
         # command handling methods after this
