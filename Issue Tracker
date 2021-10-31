@@ -1,4 +1,5 @@
 LG- 29/09/21 Logic on count tracker needs polishing as its currently >= 5 meaning even if they guess correctly on the 5th go it still displays the
              losing message.
 MB- 30/09/21 User guess entry not validated as a number.
-MB- 1/010/21 User is not notified if they try to enter a guess when asked if they want a hint.
+MB- 1/10/21 User is not notified if they try to enter a guess when asked if they want a hint.
+MB - 31/10/21 No Scoring system.
