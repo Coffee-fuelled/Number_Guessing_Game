@@ -61,6 +61,7 @@ def save_high_score(_name, _score, att_message, att_button, att_name):
     players = []
     # blank message string
     message = ""
+    save_authourised = False
 
     # check if the file exists
     if check_json_file('scores.json'):
@@ -85,24 +86,30 @@ def save_high_score(_name, _score, att_message, att_button, att_name):
             if highest_player.score > new_player.score:
                 players.append(new_player)
                 message = "New High "
+                save_authourised = True
     # if no file then create new one
     else:
         players = [new_player]
         message = "First High "
+        save_authourised = True
+
     # check that name is not the default
     if _name != 'nobody special':
-        with open('scores.json', 'w') as output:
-            # add players to a dictionary
-            data = [Player.to_dict() for Player in players]
-            # convert dictionary to json string
-            json_data = json.dumps({"players": data})
-            # write to file
-            output.write(json_data)
-            # finish message
-            message += "Score - Saved!"
-            # disable the button and the name entry
-            att_button["state"] = "disabled"
-            att_name["state"] = "disabled"
+        if save_authourised:
+            with open('scores.json', 'w') as output:
+                # add players to a dictionary
+                data = [Player.to_dict() for Player in players]
+                # convert dictionary to json string
+                json_data = json.dumps({"players": data})
+                # write to file
+                output.write(json_data)
+                # finish message
+                message += "Score - Saved!"
+                # disable the button and the name entry
+                att_button["state"] = "disabled"
+                att_name["state"] = "disabled"
+        else:
+            message = "There is a higher score already - not Saved"
     # if the name is blank ask for name
     elif _name == "":
         message = "No Name entered - Enter a Name to Save!"
