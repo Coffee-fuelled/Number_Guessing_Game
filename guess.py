@@ -40,7 +40,8 @@ class Guess(object):
         return move
 
     def check_guess(self, x, max_guesses,  att_number_guessed, att_message_label, att_hint_button,
-                    att_guess_button, att_replay_button, att_guess_count):
+                    att_guess_button, att_replay_button, att_guess_count, att_guess_act_count, att_save_button,
+                    att_save_name):
         """
         """
 
@@ -52,11 +53,18 @@ class Guess(object):
             else:
                 att_hint_button["state"] = "normal"
                 self.count += 1
+                att_guess_act_count.setNumber(self.count)
                 if self.guess == x:
                     changeTextColour(att_message_label, f"You got it in {self.count} guesses!", "white", "green")
                     att_guess_button["state"] = "disabled"
                     att_hint_button["state"] = "disabled"
                     att_replay_button["state"] = "normal"
+                    # added for scoring - enable to save the score if the game is won
+                    att_save_button["state"] = "normal"
+                    # enable name text entry
+                    att_save_name["state"] = "normal"
+                    # clear entry so old name is not saved over by mistake
+                    att_save_name.setText("")
                 else:
                     if self.count >= max_guesses:
                         changeTextColour(att_message_label, f"The number is {x},"
@@ -72,7 +80,7 @@ class Guess(object):
             changeTextColour(att_message_label, "You need to enter an integer!",  "red", "white")
 
         finally:
-            att_guess_count["text"] = str(self.count + 1)+" Guesses"
+            att_guess_count["text"] = str(self.count)+" Guesses used"
         # end of check guess*******
         return self.guess
 
